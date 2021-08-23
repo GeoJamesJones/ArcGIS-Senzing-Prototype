@@ -1,0 +1,76 @@
+
+verifyCompatibilityVersion {"expectedVersion": "6"}
+
+addElement {"element":"USER_NAME", "datatype":"string", "tokenize":"No"}
+addElement {"element":"DOMAIN_NAME", "datatype":"string", "tokenize":"No"}
+addElement {"element":"ADDR_STD", "datatype":"string", "tokenize":"No"}
+
+addElementToFeature {"feature":"EMAIL", "element":"USER_NAME", "datatype":"string", "tokenize":"No", "derived":"No", "display_level":0}
+addElementToFeature {"feature":"EMAIL", "element":"DOMAIN_NAME", "datatype":"string", "tokenize":"No", "derived":"No", "display_level":0}
+addElementToFeature {"feature":"EMAIL", "element":"FULL_NAME", "datatype":"string", "tokenize":"No", "derived":"Yes", "display_level":0}
+addElementToFeature {"feature":"EMAIL", "element":"ADDR_STD", "datatype":"string", "tokenize":"No", "derived":"Yes", "display_level":0}
+
+addElementToFeature {"feature":"NATIONAL_ID", "element":"COUNTRY", "datatype":"string", "tokenize":"No", "derived":"No", "display_level":1}
+addElementToFeature {"feature":"NATIONAL_ID", "element":"COUNTRY_CODE", "datatype":"string", "tokenize":"No", "derived":"No", "display_level":0}
+
+addElementToFeature {"feature":"SSN", "element":"ID_LAST4", "datatype":"string", "tokenize":"No", "derived":"No", "display_level":0}
+
+updateFeatureVersion {"feature":"NAME", "version":2}
+updateFeatureVersion {"feature":"ADDRESS", "version":3}
+updateFeatureVersion {"feature":"PASSPORT", "version":2}
+updateFeatureVersion {"feature":"TAX_ID", "version":2}
+updateFeatureVersion {"feature":"NATIONAL_ID", "version":2}
+updateFeatureVersion {"feature":"EMAIL", "version":2}
+updateFeatureVersion {"feature":"OTHER_ID", "version":2}
+updateFeatureVersion {"feature":"CITIZENSHIP", "version":2}
+updateFeatureVersion {"feature":"NATIONALITY", "version":2}
+updateFeatureVersion {"feature":"REGISTRATION_DATE", "version":2}
+updateFeatureVersion {"feature":"DUNS_NUMBER", "version":2}
+updateFeatureVersion {"feature":"NPI_NUMBER", "version":2}
+updateFeatureVersion {"feature":"LEI_NUMBER", "version":2}
+updateFeatureVersion {"feature":"MOBILE_AD_ID", "version":2}
+
+updateAttributeAdvanced {"attribute":"ADDR_FROM_DATE", "advanced":"Yes"}
+updateAttributeAdvanced {"attribute":"PHONE_FROM_DATE", "advanced":"Yes"}
+
+addStandardizeFunc {"function":"PARSE_EMAIL", "funcLib":"g2func_lib", "version":"1", "connectStr":"g2ParseEmail"}
+addStandardizeCall {"feature":"EMAIL", "function":"PARSE_EMAIL", "execOrder":1}
+
+updateExpressionFuncVersion {"function":"EXPRESS_BOM","version":"2"}
+updateExpressionFuncVersion {"function":"NAME_HASHER","version":"2"}
+updateExpressionFuncVersion {"function":"ADDR_HASHER","version":"2"}
+updateExpressionFuncVersion {"function":"PHONE_HASHER","version":"2"}
+updateExpressionFuncVersion {"function":"EXPRESS_ID","version":"2"}
+updateExpressionFuncVersion {"function":"STB_HASHER","version":"2"}
+updateExpressionFuncVersion {"function":"FEAT_BUILDER","version":"2"}
+
+addExpressionCall {"element":"COUNTRY_CODE", "function":"FEAT_BUILDER", "execOrder":100, "expressionFeature":"COUNTRY_OF_ASSOCIATION", "virtual":"No", "elementList": [{"element":"COUNTRY", "featureLink":"parent", "required":"No"},{"element":"COUNTRY_CODE", "featureLink":"parent", "required":"No"}]}
+
+deleteFromNamehash {"feature": "DOB", "element": "DATE_HASH"}
+addToNamehash {"element": "DATE_HASH"}
+addToNamehash {"element": "MMYY_HASH"}
+addToNamehash {"element": "MMDD_HASH"}
+
+deleteFromSSNLast4hash {"feature": "DOB", "element": "DATE_HASH"}
+addToNameSSNLast4hash {"element": "DATE_HASH"}
+
+addComparisonFunc {"function":"EMAIL_COMP", "funcLib":"INT_LIB", "version":"1", "connectStr":"g2EmailComp"}
+addComparisonFuncReturnCode {"function":"EMAIL_COMP", "scoreName":"FULL_SCORE"}
+
+deleteFeatureComparison {"feature": "EMAIL"}
+addFeatureComparison {"feature": "EMAIL", "comparison": "EMAIL_COMP", "elementList": [{"element": "ADDR"}, {"element": "USER_NAME"}, {"element": "DOMAIN_NAME"}, {"element": "ADDR_STD"}]}
+
+deleteFeatureComparisonElement {"feature": "NATIONAL_ID", "element": "ID_TYPE"}
+addFeatureComparisonElement {"feature": "NATIONAL_ID", "element": "COUNTRY"}
+
+addFeatureDistinctCallElement {"feature": "ADDRESS", "element": "COUNTRY_CODE"}
+addFeatureDistinctCallElement {"feature": "PASSPORT", "element": "COUNTRY_CODE"}
+addFeatureDistinctCallElement {"feature": "TAX_ID", "element": "COUNTRY_CODE"}
+addFeatureDistinctCallElement {"feature": "NATIONAL_ID", "element": "COUNTRY"}
+addFeatureDistinctCallElement {"feature": "NATIONAL_ID", "element": "COUNTRY_CODE"}
+addFeatureDistinctCallElement {"feature": "OTHER_ID", "element": "COUNTRY_CODE"}
+
+updateCompatibilityVersion {"fromVersion": "6", "toVersion": "7"}
+
+save
+

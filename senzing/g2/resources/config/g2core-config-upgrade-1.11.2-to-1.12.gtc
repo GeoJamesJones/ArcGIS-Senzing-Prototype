@@ -1,0 +1,76 @@
+
+verifyCompatibilityVersion {"expectedVersion": "4.1"}
+
+addConfigSection {"section":"CFG_DSRC_INTEREST"}
+
+addConfigSectionField {"section":"CFG_SFCALL", "field":"FELEM_ID", "value":-1 }
+addConfigSectionField {"section":"CFG_EFCALL", "field":"FELEM_ID", "value":-1 }
+addConfigSectionField {"section":"CFG_EFCALL", "field":"EFEAT_FTYPE_ID", "value":-1 }
+addConfigSectionField {"section":"CFG_EFCALL", "field":"IS_VIRTUAL", "value":"No" }
+
+addElement {"element":"COUNTRY_CODE", "datatype":"string", "tokenize":"No", "id":117}
+
+addFeature  {"feature": "RECORD_TYPE", "class": "BIO_FEATURE", "behavior": "FVME", "anonymize": "No", "candidates": "No", "derived": "No", "standardize": "", "expression": "", "comparison": "EXACT_COMP", "elementList": [{"element": "TYPE", "expressed": "No", "compared": "Yes"}]}
+addAttribute {"attribute": "RECORD_TYPE", "class": "ATTRIBUTE", "feature": "RECORD_TYPE", "element": "TYPE", "required": "Yes", "default": "", "advanced": "No", "internal": "No"}
+
+addAttribute {"attribute": "DOD_PREHASHED", "class": "ATTRIBUTE", "feature": "DOD", "element": "<PREHASHED>", "required": "No", "default": "", "advanced": "Yes", "internal": "Yes"}
+addAttribute {"attribute": "DATE_OF_DEATH", "class": "ATTRIBUTE", "feature": "DOD", "element": "DATE", "required": "Yes", "default": "", "advanced": "No", "internal": "No"}
+addAttribute {"attribute": "DOD_YEAR", "class": "ATTRIBUTE", "feature": "DOD", "element": "DATE_YEAR", "required": "No", "default": "", "advanced": "Yes", "internal": "Yes"}
+addAttribute {"attribute": "DOD_MONTH", "class": "ATTRIBUTE", "feature": "DOD", "element": "DATE_MONTH", "required": "No", "default": "", "advanced": "Yes", "internal": "Yes"}
+addAttribute {"attribute": "DOD_DAY", "class": "ATTRIBUTE", "feature": "DOD", "element": "DATE_DAY", "required": "No", "default": "", "advanced": "Yes", "internal": "Yes"}
+addAttribute {"attribute": "DOD_HASH", "class": "ATTRIBUTE", "feature": "DOD", "element": "DATE_HASH", "required": "No", "default": "", "advanced": "Yes", "internal": "Yes"}
+
+addFeature {"feature": "PLACE_OF_BIRTH", "class": "BIO_FEATURE", "behavior": "FVM", "anonymize": "No", "candidates": "No", "standardize": "", "expression": "", "comparison": "STR_COMP", "elementList": [{"compared": "Yes", "element": "PLACE"}]}
+addAttribute {"attribute": "PLACE_OF_BIRTH", "class": "ATTRIBUTE", "feature": "PLACE_OF_BIRTH", "element": "PLACE", "required": "Yes"}
+
+addFeature {"feature": "REGISTRATION_DATE", "class": "BIO_DATE", "behavior": "FMES", "anonymize": "No", "candidates": "Yes", "standardize": "PARSE_DOB", "expression": "", "comparison": "DOB_COMP", "elementList": [{"element": "DATE", "expressed": "No", "compared": "Yes"}, {"element": "DATE_YEAR", "expressed": "No", "compared": "Yes"}, {"element": "DATE_MONTH", "expressed": "No", "compared": "Yes"}, {"element": "DATE_DAY", "expressed": "No", "compared": "Yes"}, {"element": "DATE_HASH", "expressed": "No", "compared": "No"}, {"element": "MMYY_HASH", "expressed": "No", "compared": "No"}, {"element": "MMDD_HASH", "expressed": "No", "compared": "No"}]}
+addAttribute {"attribute": "REGISTRATION_DATE", "class": "ATTRIBUTE", "feature": "REGISTRATION_DATE", "element": "DATE", "required": "Yes", "default": "", "advanced": "No", "internal": "No"}
+
+addFeature {"feature": "REGISTRATION_COUNTRY", "class": "BIO_FEATURE", "behavior": "FVM", "anonymize": "No", "candidates": "No", "standardize": "", "expression": "", "comparison": "STR_COMP", "elementList": [{"compared": "Yes", "element": "COUNTRY"},{"compared": "No", "element": "COUNTRY_CODE"}]}
+addAttribute {"attribute": "REGISTRATION_COUNTRY", "class": "ATTRIBUTE", "feature": "REGISTRATION_COUNTRY", "element": "COUNTRY", "required": "Yes"}
+
+addFeature {"feature": "GROUP_ASSN_ID", "class": "OTHER", "behavior": "FF", "anonymize": "No", "candidates": "Yes", "standardize": "", "expression": "", "comparison": "EXACT_COMP", "elementList": [{"compared": "Yes", "element": "ID_TYPE"}, {"compared": "Yes", "element": "ID_NUM"}]}
+addAttribute {"attribute": "GROUP_ASSN_ID_TYPE", "class": "ATTRIBUTE", "feature": "GROUP_ASSN_ID", "element": "ID_TYPE", "required": "Yes"}
+addAttribute {"attribute": "GROUP_ASSN_ID_NUMBER", "class": "ATTRIBUTE", "feature": "GROUP_ASSN_ID", "element": "ID_NUM", "required": "Yes"}
+
+addFeature  {"feature": "DUNS_NUMBER", "class": "ISSUED_ID", "behavior": "F1E", "anonymize": "No", "candidates": "Yes", "standardize": "PARSE_ID", "expression": "EXPRESS_ID", "comparison": "EXACT_COMP", "elementList": [{"element": "ID_NUM", "expressed": "No", "compared": "Yes"},{"element": "ID_NUM_STD", "expressed": "Yes", "compared": "No"},{"element": "ID_LAST4", "expressed": "No", "compared": "No"},{"element": "STATE", "expressed": "No", "compared": "No"}]}
+addAttribute {"attribute": "DUNS_NUMBER", "class": "IDENTIFIER", "feature": "DUNS_NUMBER", "element": "ID_NUM", "required": "Yes", "default": "", "advanced": "No", "internal": "No"}
+
+addFeature  {"feature": "NPI_NUMBER", "class": "ISSUED_ID", "behavior": "F1E", "anonymize": "No", "candidates": "Yes", "standardize": "PARSE_ID", "expression": "EXPRESS_ID", "comparison": "EXACT_COMP", "elementList": [{"element": "ID_NUM", "expressed": "No", "compared": "Yes"},{"element": "ID_NUM_STD", "expressed": "Yes", "compared": "No"},{"element": "ID_LAST4", "expressed": "No", "compared": "No"},{"element": "STATE", "expressed": "No", "compared": "No"}]}
+addAttribute {"attribute": "NPI_NUMBER", "class": "IDENTIFIER", "feature": "NPI_NUMBER", "element": "ID_NUM", "required": "Yes", "default": "", "advanced": "No", "internal": "No"}
+
+addFeature  {"feature": "LEI_NUMBER", "class": "ISSUED_ID", "behavior": "F1E", "anonymize": "No", "candidates": "Yes", "standardize": "PARSE_ID", "expression": "EXPRESS_ID", "comparison": "EXACT_COMP", "elementList": [{"element": "ID_NUM", "expressed": "No", "compared": "Yes"},{"element": "ID_NUM_STD", "expressed": "Yes", "compared": "No"},{"element": "ID_LAST4", "expressed": "No", "compared": "No"},{"element": "STATE", "expressed": "No", "compared": "No"}]}
+addAttribute {"attribute": "LEI_NUMBER", "class": "IDENTIFIER", "feature": "LEI_NUMBER", "element": "ID_NUM", "required": "Yes", "default": "", "advanced": "No", "internal": "No"}
+
+deleteAttribute {"attribute": "GROUP_ASSOCIATION_TYPE"}
+addAttribute {"attribute": "GROUP_ASSOCIATION_TYPE", "class": "ATTRIBUTE", "feature": "GROUP_ASSOCIATION", "element": "TYPE", "required": "No", "default": "(org)", "advanced": "No", "internal": "No"}
+
+addFeature {"feature": "CK_NAME_DOB_COUNTRY", "class": "OTHER", "behavior": "FF", "anonymize": "No", "candidates": "Yes", "derived": "Yes", "standardize": "", "expression": "", "comparison": "", "elementList": [{"element": "EXPRESSION", "expressed": "No", "compared": "No"}]}
+addAttribute {"attribute": "CK_NAME_DOB_COUNTRY", "class": "OTHER", "feature": "CK_NAME_DOB_COUNTRY", "element": "EXPRESSION", "required": "Yes", "default": "", "advanced": "Yes", "internal": "Yes"}
+
+addFeature {"feature": "CK_NAME_DOB", "class": "OTHER", "behavior": "FF", "anonymize": "No", "candidates": "Yes", "derived": "Yes", "standardize": "", "expression": "", "comparison": "", "elementList": [{"element": "EXPRESSION", "expressed": "No", "compared": "No"}]}
+addAttribute {"attribute": "CK_NAME_DOB", "class": "OTHER", "feature": "CK_NAME_DOB", "element": "EXPRESSION", "required": "Yes", "default": "", "advanced": "Yes", "internal": "Yes"}
+
+addFeature {"feature": "CK_NAME_COUNTRY", "class": "OTHER", "behavior": "FF", "anonymize": "No", "candidates": "Yes", "derived": "Yes", "standardize": "", "expression": "", "comparison": "", "elementList": [{"element": "EXPRESSION", "expressed": "No", "compared": "No"}]}
+addAttribute {"attribute": "CK_NAME_COUNTRY", "class": "OTHER", "feature": "CK_NAME_COUNTRY", "element": "EXPRESSION", "required": "Yes", "default": "", "advanced": "Yes", "internal": "Yes"}
+
+addFeature {"feature": "CK_NAME_GROUPNAME", "class": "OTHER", "behavior": "FF", "anonymize": "No", "candidates": "Yes", "derived": "Yes", "standardize": "", "expression": "", "comparison": "", "elementList": [{"element": "EXPRESSION", "expressed": "No", "compared": "No"}]}
+addAttribute {"attribute": "CK_NAME_GROUPNAME", "class": "OTHER", "feature": "CK_NAME_GROUPNAME", "element": "EXPRESSION", "required": "Yes", "default": "", "advanced": "Yes", "internal": "Yes"}
+
+addFeature {"feature": "CK_NAME_GROUPID", "class": "OTHER", "behavior": "FF", "anonymize": "No", "candidates": "Yes", "derived": "Yes", "standardize": "", "expression": "", "comparison": "", "elementList": [{"element": "EXPRESSION", "expressed": "No", "compared": "No"}]}
+addAttribute {"attribute": "CK_NAME_GROUPID", "class": "OTHER", "feature": "CK_NAME_GROUPID", "element": "EXPRESSION", "required": "Yes", "default": "", "advanced": "Yes", "internal": "Yes"}
+
+addFeature {"feature": "COUNTRY_OF_ASSOCIATION", "class": "BIO_FEATURE", "behavior": "FVM", "anonymize": "No", "candidates": "No", "standardize": "", "expression": "", "comparison": "STR_COMP", "elementList": [{"element": "COUNTRY", "compared": "Yes"},{"element": "COUNTRY_CODE", "compared": "No"}]}
+addAttribute {"attribute": "COUNTRY_OF_ASSOCIATION", "class": "ATTRIBUTE", "feature": "COUNTRY_OF_ASSOCIATION", "element": "COUNTRY", "required": "Yes", "default": "", "advanced": "No", "internal": "No"}
+
+addFeature  {"feature": "MOBILE_AD_ID", "class": "ISSUED_ID", "behavior": "FF", "anonymize": "No", "candidates": "Yes", "standardize": "PARSE_ID", "expression": "EXPRESS_ID", "comparison": "EXACT_COMP", "elementList": [{"element": "ID_NUM", "expressed": "No", "compared": "Yes"},{"element": "ID_NUM_STD", "expressed": "Yes", "compared": "No"},{"element": "ID_LAST4", "expressed": "No", "compared": "No"},{"element": "STATE", "expressed": "No", "compared": "No"}]}
+addAttribute {"attribute": "MOBILE_AD_ID", "class": "IDENTIFIER", "feature": "MOBILE_AD_ID", "element": "ID_NUM", "required": "Yes", "default": "", "advanced": "No", "internal": "No"}
+
+addToNamehash {"feature": "PHONE", "element": "PHONE_LAST_5"}
+addToNamehash {"feature": "GROUP_ASSN_ID", "element": "ID_NUM"}
+addToNamehash {"feature": "COUNTRY_OF_ASSOCIATION", "element": "COUNTRY"}
+
+updateCompatibilityVersion {"fromVersion": "4.1", "toVersion": "5"}
+
+save
+

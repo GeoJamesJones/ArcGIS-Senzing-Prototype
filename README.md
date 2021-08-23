@@ -1,2 +1,2 @@
-# ArcGIS-Senzing-Prototype
+# entity_resolution_proto
  

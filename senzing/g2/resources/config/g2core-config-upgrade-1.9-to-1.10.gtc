@@ -1,0 +1,9 @@
+addElement {"element": "MMDD_HASH"}
+addElement {"element": "MMYY_HASH"}
+addElementToFeature {"feature": "DOB", "element": "MMDD_HASH"}
+addElementToFeature {"feature": "DOB", "element": "MMYY_HASH"}
+addElementToFeature {"feature": "DOD", "element": "MMDD_HASH"}
+addElementToFeature {"feature": "DOD", "element": "MMYY_HASH"}
+
+save
+

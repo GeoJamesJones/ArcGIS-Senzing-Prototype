@@ -1,0 +1,55 @@
+
+verifyCompatibilityVersion {"expectedVersion": "8"}
+
+setFeatureElementDerived {"feature": "NAME", "element": "CULTURE", "derived": "Yes"}
+setFeatureElementDerived {"feature": "NAME", "element": "SCRIPT", "derived": "Yes"}
+setFeatureElementDerived {"feature": "NAME", "element": "CATEGORY", "derived": "Yes"}
+setFeatureElementDerived {"feature": "ADDRESS", "element": "STR_NUM", "derived": "Yes"}
+setFeatureElementDerived {"feature": "ADDRESS", "element": "STR_NAME", "derived": "Yes"}
+setFeatureElementDerived {"feature": "ADDRESS", "element": "UNIT_TYPE", "derived": "Yes"}
+setFeatureElementDerived {"feature": "ADDRESS", "element": "UNIT_NUM", "derived": "Yes"}
+setFeatureElementDerived {"feature": "SSN", "element": "ID_LAST4", "derived": "Yes"}
+setFeatureElementDerived {"feature": "PASSPORT", "element": "COUNTRY_CODE", "derived": "Yes"}
+setFeatureElementDerived {"feature": "TAX_ID", "element": "ID_NUM_STD", "derived": "Yes"}
+setFeatureElementDerived {"feature": "TAX_ID", "element": "COUNTRY_CODE", "derived": "Yes"}
+setFeatureElementDerived {"feature": "NATIONAL_ID", "element": "COUNTRY_CODE", "derived": "Yes"}
+setFeatureElementDerived {"feature": "EMAIL", "element": "USER_NAME", "derived": "Yes"}
+setFeatureElementDerived {"feature": "EMAIL", "element": "DOMAIN_NAME", "derived": "Yes"}
+setFeatureElementDerived {"feature": "OTHER_ID", "element": "COUNTRY_CODE", "derived": "Yes"}
+setFeatureElementDerived {"feature": "CITIZENSHIP", "element": "COUNTRY_CODE", "derived": "Yes"}
+setFeatureElementDerived {"feature": "NATIONALITY", "element": "COUNTRY_CODE", "derived": "Yes"}
+setFeatureElementDerived {"feature": "AMBIGUOUS_ENTITY", "element": "AMBIGUOUS_TYPE", "derived": "No"}
+setFeatureElementDerived {"feature": "AMBIGUOUS_ENTITY", "element": "AMBIGUOUS_FTYPE_ID", "derived": "No"}
+setFeatureElementDerived {"feature": "AMBIGUOUS_ENTITY", "element": "AMBIGUOUS_TIER", "derived": "No"}
+setFeatureElementDerived {"feature": "AMBIGUOUS_ENTITY", "element": "AMBIGUOUS_SUPRESSED_LIBFEAT", "derived": "No"}
+setFeatureElementDerived {"feature": "REGISTRATION_COUNTRY", "element": "COUNTRY_CODE", "derived": "Yes"}
+setFeatureElementDerived {"feature": "DUNS_NUMBER", "element": "ID_NUM_STD", "derived": "Yes"}
+setFeatureElementDerived {"feature": "DUNS_NUMBER", "element": "ID_LAST4", "derived": "Yes"}
+setFeatureElementDerived {"feature": "NPI_NUMBER", "element": "ID_NUM_STD", "derived": "Yes"}
+setFeatureElementDerived {"feature": "NPI_NUMBER", "element": "ID_LAST4", "derived": "Yes"}
+setFeatureElementDerived {"feature": "LEI_NUMBER", "element": "ID_NUM_STD", "derived": "Yes"}
+setFeatureElementDerived {"feature": "LEI_NUMBER", "element": "ID_LAST4", "derived": "Yes"}
+setFeatureElementDerived {"feature": "COUNTRY_OF_ASSOCIATION", "element": "COUNTRY_CODE", "derived": "Yes"}
+setFeatureElementDerived {"feature": "MOBILE_AD_ID", "element": "ID_NUM_STD", "derived": "Yes"}
+setFeatureElementDerived {"feature": "MOBILE_AD_ID", "element": "ID_LAST4", "derived": "Yes"}
+
+setFeatureElementDisplayLevel {"feature": "LOGIN_ID", "element": "LOGIN_DOMAIN", "display_level": 1}
+setFeatureElementDisplayLevel {"feature": "ACCT_NUM", "element": "ACCT_DOMAIN", "display_level": 1}
+setFeatureElementDisplayLevel {"feature": "GEO_LOC", "element": "LATLONG", "display_level": 1}
+setFeatureElementDisplayLevel {"feature": "REGISTRATION_COUNTRY", "element": "COUNTRY_CODE", "display_level": 0}
+setFeatureElementDisplayLevel {"feature": "DUNS_NUMBER", "element": "ID_LAST4", "display_level": 0}
+setFeatureElementDisplayLevel {"feature": "NPI_NUMBER", "element": "ID_LAST4", "display_level": 0}
+setFeatureElementDisplayLevel {"feature": "LEI_NUMBER", "element": "ID_LAST4", "display_level": 0}
+setFeatureElementDisplayLevel {"feature": "COUNTRY_OF_ASSOCIATION", "element": "COUNTRY_CODE", "display_level": 0}
+setFeatureElementDisplayLevel {"feature": "MOBILE_AD_ID", "element": "ID_LAST4", "display_level": 0}
+
+addFragment {"fragment": "DIFF_A1ES", "source": "./SUMMARY/BEHAVIOR/A1ES[sum(./LIKELY | ./PLAUSIBLE | ./UNLIKELY | ./NO_CHANCE) > 0]"}
+addFragment {"fragment": "DIFF_GEN_A1ES", "source": "./SCORES/NAME[./GENERATION_MATCH = 0] | ./FRAGMENT[./DIFF_A1ES>0]"}
+
+setRule {"id": 111, "rule": "SF1_SNAME_CFF_CSTAB_DEXCL", "disqualifier": "DIFF_GEN_A1ES"}
+setRule {"id": 140, "rule": "MSTAB_LNAME_SF1", "disqualifier": "DIFF_GEN_A1ES"}
+
+updateCompatibilityVersion {"fromVersion": "8", "toVersion": "9"}
+
+save
+

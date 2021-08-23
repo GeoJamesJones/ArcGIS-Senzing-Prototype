@@ -1,0 +1,10 @@
+[version]
+gnr 4.2
+
+[variants]
+0.95,CORY:CORI,0:1
+0.95,BERNIE:BERNARD,0:1
+0.95,EDENA:EDINA,0:1
+
+[taqs]
+NOMIDDLENAME,5,E,A

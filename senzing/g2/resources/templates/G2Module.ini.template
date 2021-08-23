@@ -1,0 +1,9 @@
+[PIPELINE]
+ SUPPORTPATH=C:\senzing\g2\data
+ CONFIGPATH=C:\senzing\g2\etc
+ RESOURCEPATH=C:\senzing\g2\resources
+
+[SQL]
+ CONNECTION=sqlite3://na:na@C:\senzing\g2\var\sqldb\G2C.db
+# CONNECTION=mysql://username:password@hostname:3306/?schema=schemaname
+

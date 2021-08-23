@@ -1,0 +1,288 @@
+<main> ==
+end org taq: * <org-taq> == ORGANIZATION,95
+floating org taq1: * <org-taq>, * == ORGANIZATION,95
+floating org taq2: * <org-taq> - * == ORGANIZATION,95
+org char: *<org-char>* == ORGANIZATION,90
+all pn: * == PERSON,100
+
+<org-char> ==
+    0
+    1
+    2
+    3
+    4
+    5
+    6
+    7
+    8
+    9
+    !
+    @
+    #
+    $
+    %
+//    ^
+//    &
+    
+<org-taq> ==
+    of
+    the
+    a b
+    a e
+    a g
+    a l
+    a o
+    a p c
+    a professional corporation
+    a s
+    ag       //more GN than SN, less than 500; use as a taq
+    aksjeselskap
+    aktiebolag
+    aktiengesellschaft
+    aktieselskab
+    aktieselskabet
+    aktsiaselts
+    amba
+    andelslag
+    andelsselskab met begraenset
+    anonim ortakligi
+    anonymi eteria
+    anpartsselskab
+    apc
+    aps
+    as
+    avoinyhtio
+    ay       //somewhat common in several cultures; use as a taq
+    b v
+    b v b a
+    berhad
+    besloten vennootschap
+    besloten vennootschap ba
+    bhd
+    bv
+    bvba
+    c a
+    c anonima  
+    c p:uor a
+    cia      //somewhat common in several cultures; use as a taq
+    cia anonima
+    cie
+    co.
+    compagnie
+    compania
+    compania anonima
+    compania por acciones
+    companies
+    corp
+    corp.
+    corpn
+    corporation
+    cpdh
+    cpora
+    e g
+    e p e
+    edds
+    eg
+    eingetragene genossenschaft
+    epe
+    g b r
+    g m b h
+    g m k
+    g p
+    gbr
+    general partnership
+    gesellschaft burgerlichen rechts
+    gesellschaft mbh
+    gmbh
+    gmk
+    gp
+    hf
+    hlutafelag
+    i n c
+    inc
+    inc.
+    incorp
+    incorporated
+    inh
+    inhaber
+    j s c
+    joint stock company
+    jsc
+    julkinen osakeyhtio
+    k g
+    k g a a
+    k k
+    kabushiki kaisha
+    kg
+    kg auf aktien
+    kgaa
+    kk
+    kollektivgesellschaft
+    kommanditgesellschaft
+    kommanditgesellschaft auf aktien
+    l c
+    l l
+    l l c
+    l l p
+    l p
+    l t d
+    lc
+    lda
+    limitada
+    limited
+    limited company
+    limited liability co  
+    limited liability company
+    limited liability corp  
+    limited liability corporation
+    limited liability partnership
+    limited partnership
+    limitee
+    ll
+    llc
+    llp
+    lp
+    ltd
+    ltda
+    ltee
+    m b h
+    m g
+    mbh
+    medical group
+    mg
+    mij
+    mit beschraenkter haftung
+    n l
+    n v
+    naamloze vennootschap
+    nl
+    no liability  
+    nv
+    o h g
+    o j s c
+    offene handelsgesellschaft
+    ohg
+    ojsc
+    open joint stock company
+    osakeyhtio
+    oy
+    oyj
+    p c
+    p l c
+    p l l c
+    p s c
+    p/l
+    pc
+    perjan
+    persero
+    perseroan terbatas
+    perum
+    perusahaan
+    perusahaan jawatan
+    perusahaan negara 
+    perusahaan perseorangan
+    perusahaan perseroan
+    perusahaan umum
+    perusahaanumum
+    perusahan
+    perusuhan
+    plc
+    pllc
+    pn
+    pp
+    private
+    professional corporation
+    professional limited liability co
+    professional limited liability company
+    proprietary
+    psc
+    pt
+    pte
+    pty
+    public limited company 
+    public sector company
+    pvt
+    s a
+    s a c
+    s a c a
+    s a c i
+    s a e
+    s a l
+    s a r l
+    s a s
+    s c
+    s c l
+    s c r l
+    s de rl
+    s de rl de cv
+    s en c
+    s g p s
+    s l
+    s n c
+    s p r l
+    s r l
+    s v
+    s/a
+    s.a
+    s.a.
+    s.a.l.
+    s.c.s.
+    s.p.a.
+    s.r.l.
+    sa
+    sa de cv
+    sac      //less than 500; use as a taq
+    sacei
+    saci     //not very common; use as a taq
+    sadecv
+    saica
+    sal      //not very common in any particular culture; use as a taq
+    samenwerkende vennootschap
+    sarl     //less than 100; use as a taq
+    sc
+    scl
+    scrl
+    scs
+    sderl
+    sdn berhad
+    sdn bhd
+    senc
+    sendirian berhad
+    sendirian bhd
+    sgps
+    sl
+    snc
+    sociedad anonima
+    sociedad anonima commercial
+    sociedad anonima commercial e industrial
+    sociedad anonima compania anonima
+    sociedad anonima de capital variable  
+    sociedad anonima de responsabilidad limitada
+    sociedad anonima espanol
+    sociedad anonima inscrita de capital abierto
+    sociedad anonima laboral
+    sociedad cooperativa limitada
+    sociedad de responsabilidad limitada
+    sociedad en comandita
+    sociedade gestora de participacoes sociais
+    societa in accomandita semplice
+    societa in nome collectivo
+    societa limitada
+    societa responsibilita limitata
+    societe anonyme
+    societe cooperative de responsabilite limitee
+    societe en commandite
+    societe en nom collectif
+    societe privee a responsabilite limitee
+    societee a responsabilite limitee
+    s p a
+    spa       //not very common; use as a taq
+    spolka akcyjna
+    sprl
+    srl
+    sv
+    t a s
+    ticaret anonim sirketi
+    ticaret as
+    with limited liability
+    wll

@@ -1,0 +1,42 @@
+
+verifyCompatibilityVersion {"expectedVersion": "7"}
+
+addFeature  {"feature": "EMAIL_KEY", "class": "INTERNAL_USE", "behavior": "F1", "anonymize": "No", "candidates": "Yes", "derived": "Yes", "elementList": [{"element": "ADDR_STD"}]}
+addFeature  {"feature": "REL_ANCHOR", "class": "OTHER", "behavior": "NONE", "anonymize": "No", "candidates": "No", "derived": "No", "rtype_id": "11", "elementList": [{"element": "KEY_TYPE"},{"element": "KEY_VALUE"}]}
+addFeature  {"feature": "REL_POINTER", "class": "OTHER", "behavior": "NONE", "anonymize": "No", "candidates": "No", "derived": "No", "rtype_id": "11", "elementList": [{"element": "KEY_TYPE"},{"element": "KEY_VALUE"}]}
+
+setFeature {"feature": "TRUSTED_ID", "behavior": "A1ES"}
+
+addAttribute {"id": 2801, "attribute": "REL_ANCHOR_DOMAIN", "class": "RELATIONSHIP", "feature": "REL_ANCHOR", "element": "KEY_TYPE", "required": "No", "default": "", "advanced": "No", "internal": "No"}
+addAttribute {"id": 2802, "attribute": "REL_ANCHOR_KEY", "class": "RELATIONSHIP", "feature": "REL_ANCHOR", "element": "KEY_VALUE", "required": "Yes", "default": "", "advanced": "No", "internal": "No"}
+addAttribute {"id": 2811, "attribute": "REL_POINTER_DOMAIN", "class": "RELATIONSHIP", "feature": "REL_POINTER", "element": "KEY_TYPE", "required": "No", "default": "", "advanced": "No", "internal": "No"}
+addAttribute {"id": 2812, "attribute": "REL_POINTER_KEY", "class": "RELATIONSHIP", "feature": "REL_POINTER", "element": "KEY_VALUE", "required": "Yes", "default": "", "advanced": "No", "internal": "No"}
+addAttribute {"id": 2813, "attribute": "REL_POINTER_ROLE", "class": "RELATIONSHIP", "feature": "REL_POINTER", "element": "USAGE_TYPE", "required": "No", "default": "", "advanced": "No", "internal": "No"}
+
+addExpressionCall {"feature":"EMAIL", "function":"FEAT_BUILDER", "execOrder":1, "expressionFeature":"EMAIL_KEY", "virtual":"No", "elementList": [{"feature":"EMAIL", "element":"ADDR_STD", "required":"Yes"}]}
+
+addEntityScore {"behavior": "A1", "grouperFeat": "No", "richnessScore": 5, "exclusivityScore": 0}
+addEntityScore {"behavior": "A1E", "grouperFeat": "Yes", "richnessScore": 7, "exclusivityScore": 10}
+addEntityScore {"behavior": "A1ES", "grouperFeat": "Yes", "richnessScore": 10, "exclusivityScore": 15}
+
+addFragment {"id": 201, "fragment": "SAME_A1", "source": "./SUMMARY/BEHAVIOR/A1[./SAME > 0]"}
+addFragment {"id": 202, "fragment": "CLOSE_A1E", "source": "./SUMMARY/BEHAVIOR/A1E[sum(./SAME | ./CLOSE) > 0]"}
+addFragment {"id": 203, "fragment": "DIFF_A1", "source": "./SUMMARY/BEHAVIOR/A1[sum(./LIKELY | ./PLAUSIBLE | ./UNLIKELY | ./NO_CHANCE) > 0]"}
+addFragment {"id": 204, "fragment": "NO_A1", "source": "./SUMMARY/BEHAVIOR/A1[sum(./SAME | ./CLOSE | ./LIKELY | ./PLAUSIBLE | ./UNLIKELY | ./NO_CHANCE) = 0]"}
+addFragment {"id": 205, "fragment": "SAME_A1E", "source": "./SUMMARY/BEHAVIOR/A1E[sum(./SAME) > 0]"}
+
+setFragment {"fragment": "SAME_EXCL", "source": "./FRAGMENT[sum(./SAME_FFE | ./SAME_F1E | ./SAME_A1E | ./SAME_FME) > 0]"}
+setFragment {"fragment": "CLOSE_EXCL", "source": "./FRAGMENT[sum(./CLOSE_FFE | ./CLOSE_F1E | ./CLOSE_A1E | ./CLOSE_FME) > 0]"}
+setFragment {"fragment": "DISABLE", "source": "./FRAGMENT[./NO_NAME=666]"}
+
+setRule {"id": 100, "rule": "SAME_A1", "desc": "SAME_A1", "fragment": "SAME_A1"}
+setRule {"id": 111, "rule": "SF1_SNAME_CFF_CSTAB_DEXCL", "desc": "SAME_F1+SAME_NAME+CLOSE_FF+CLOSE_STAB+DIFF_EXCL"}
+setRule {"id": 112, "rule": "SF1_PNAME_CFF_OLD", "desc": "SAME_F1+PART_NAME+CLOSE_FF+OLD", "fragment": "DISABLE", "disqualifier": ""}
+
+addRule {"id": 108, "rule": "SF1_SNAME_CFF_CSTAB", "tier": 18, "resolve": "Yes", "relate": "No", "ref_score": 10, "fragment": "SF1_SNAME_CFF_CSTAB", "disqualifier": "DIFF_EXCL", "rtype_id": 1}
+addRule {"id": 122, "rule": "SF1_PNAME_CFF", "tier": 25, "resolve": "Yes", "relate": "No", "ref_score": 9, "fragment": "SF1_PNAME_CFF", "disqualifier": "DIFF_EXCL", "rtype_id": 1}
+
+updateCompatibilityVersion {"fromVersion": "7", "toVersion": "8"}
+
+save
+

@@ -1,0 +1,21 @@
+verifyCompatibilityVersion {"expectedVersion": "4"}
+
+addFragment {"id": "72", "fragment": "NAME_CONFL", "source": "./FRAGMENT[./NO_NAME=0 or sum(./DIFF_EXCL)>0]"}
+
+deleteRule {"id": "170"}
+addRule {"id": 170, "rule": "SF1_NCONF", "tier": 60, "resolve": "Yes", "relate": "No", "ref_score": 6, "fragment": "SAME_F1", "disqualifier": "NAME_CONFL", "rtype_id": 1}
+
+addElement {"element":"AMBIGUOUS_SUPRESSED_LIBFEAT", "datatype":"number", "tokenize":"No", "id":114}
+addElement {"element":"AMBIGUOUS_TYPE", "datatype":"number", "tokenize":"No", "id":115}
+
+deleteElementFromFeature {"feature": "AMBIGUOUS_ENTITY", "element": "AMBIGUOUS_FTYPE_ID"}
+deleteElementFromFeature {"feature": "AMBIGUOUS_ENTITY", "element": "AMBIGUOUS_TIER"}
+addElementToFeature {"feature": "AMBIGUOUS_ENTITY", "element": "AMBIGUOUS_TYPE", "datatype":"number", "tokenize":"No", "derived":"Yes", "display_delem":""}
+addElementToFeature {"feature": "AMBIGUOUS_ENTITY", "element": "AMBIGUOUS_FTYPE_ID", "datatype":"number", "tokenize":"No", "derived":"Yes", "display_delem":""}
+addElementToFeature {"feature": "AMBIGUOUS_ENTITY", "element": "AMBIGUOUS_TIER", "datatype":"number", "tokenize":"No", "derived":"Yes", "display_delem":""}
+addElementToFeature {"feature": "AMBIGUOUS_ENTITY", "element": "AMBIGUOUS_SUPRESSED_LIBFEAT", "datatype":"number", "tokenize":"No", "derived":"Yes", "display_delem":""}
+
+updateCompatibilityVersion {"fromVersion": "4", "toVersion": "4.1"}
+
+save
+

@@ -1,0 +1,43 @@
+
+verifyCompatibilityVersion {"expectedVersion": "5"}
+
+addElement {"element":"TOKENIZED_NM", "datatype":"string", "tokenize":"No"}
+
+addElementToFeature {"feature":"NAME", "element":"TOKENIZED_NM", "datatype":"string", "tokenize":"No", "derived":"Yes", "display_level":0}
+addElementToFeature {"feature":"ADDRESS", "element":"COUNTRY_CODE", "datatype":"string", "tokenize":"No", "derived":"No", "display_level":0}
+addElementToFeature {"feature":"PASSPORT", "element":"COUNTRY_CODE", "datatype":"string", "tokenize":"No", "derived":"No", "display_level":0}
+addElementToFeature {"feature":"TAX_ID", "element":"COUNTRY_CODE", "datatype":"string", "tokenize":"No", "derived":"No", "display_level":0}
+addElementToFeature {"feature":"OTHER_ID", "element":"COUNTRY_CODE", "datatype":"string", "tokenize":"No", "derived":"No", "display_level":0}
+addElementToFeature {"feature":"CITIZENSHIP", "element":"COUNTRY_CODE", "datatype":"string", "tokenize":"No", "derived":"No", "display_level":0}
+addElementToFeature {"feature":"NATIONALITY", "element":"COUNTRY_CODE", "datatype":"string", "tokenize":"No", "derived":"No", "display_level":0}
+
+setFeatureElementDisplayLevel {"feature": "REGISTRATION_DATE", "element":"DATE_YEAR", "display_level":0}
+setFeatureElementDisplayLevel {"feature": "REGISTRATION_DATE", "element":"DATE_MONTH", "display_level":0}
+setFeatureElementDisplayLevel {"feature": "REGISTRATION_DATE", "element":"DATE_DAY", "display_level":0}
+setFeatureElementDisplayLevel {"feature": "REGISTRATION_DATE", "element":"DATE_HASH", "display_level":0}
+setFeatureElementDisplayLevel {"feature": "REGISTRATION_DATE", "element":"MMYY_HASH", "display_level":0}
+setFeatureElementDisplayLevel {"feature": "REGISTRATION_DATE", "element":"MMDD_HASH", "display_level":0}
+setFeatureElementDisplayLevel {"feature": "DUNS_NUMBER", "element":"ID_NUM_STD", "display_level":0}
+setFeatureElementDisplayLevel {"feature": "NPI_NUMBER", "element":"ID_NUM_STD", "display_level":0}
+setFeatureElementDisplayLevel {"feature": "LEI_NUMBER", "element":"ID_NUM_STD", "display_level":0}
+setFeatureElementDisplayLevel {"feature": "MOBILE_AD_ID", "element":"ID_NUM_STD", "display_level":0}
+
+deleteFromNamehash {"feature": "COUNTRY_OF_ASSOCIATION", "element": "COUNTRY"}
+addToNamehash {"feature": "GROUP_ASSOCIATION", "element": "ORG_NAME"}
+addToNamehash {"feature": "COUNTRY_OF_ASSOCIATION", "element": "COUNTRY_CODE"}
+
+deleteFeatureComparison {"feature": "DOD"}
+addFeatureComparison {"feature": "DOD", "comparison": "DOB_COMP", "elementList": [{"element": "DATE"}, {"element": "DATE_YEAR"}, {"element": "DATE_MONTH"}, {"element": "DATE_DAY"}]}
+
+addStandardizeFunc {"function":"STANDARDIZE_COUNTRY", "funcLib":"g2func_lib", "version":"1", "connectStr":"g2StdCountry"}
+addStandardizeCall {"element":"COUNTRY", "function":"STANDARDIZE_COUNTRY", "execOrder":100}
+
+addStandardizeFunc {"function":"TOKENIZE_NAME", "funcLib":"g2func_lib", "version":"1", "connectStr":"g2StdTokenizeName"}
+addStandardizeCall {"feature":"NAME", "function":"TOKENIZE_NAME", "execOrder":50}
+
+addExpressionFunc {"function":"FEAT_BUILDER", "funcLib":"g2funclib", "version":"1", "connectStr":"g2FeatBuilder"}
+
+updateCompatibilityVersion {"fromVersion": "5", "toVersion": "6"}
+
+save
+

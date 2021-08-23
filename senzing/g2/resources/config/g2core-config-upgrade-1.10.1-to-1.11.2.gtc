@@ -1,0 +1,11 @@
+verifyCompatibilityVersion {"expectedVersion": "3.1"}
+
+addFragment {"id": 109, "fragment": "SF1_SNAME_CFF_CSTAB", "source": "./FRAGMENT[./SAME_F1>0 and ./SAME_NAME>0 and ./CLOSE_FF>0 and ./CLOSE_STAB>0]", "depends": "SF1_SNAME_CFF_CSTAB"}
+
+deleteRule {"id": 110}
+addRule {"id": 110, "rule": "SF1_PNAME_CFF_CSTAB", "tier": 20, "resolve": "Yes", "relate": "No", "ref_score": 10, "fragment": "SF1_PNAME_CFF_CSTAB", "disqualifier": "DIFF_EXCL", "rtype_id": 1}
+addRule {"id": 111, "rule": "SF1_SNAME_CFF_CSTAB", "tier": 20, "resolve": "Yes", "relate": "No", "ref_score": 10, "fragment": "SF1_SNAME_CFF_CSTAB", "disqualifier": "DIFF_GEN", "rtype_id": 1}
+
+updateCompatibilityVersion {"fromVersion": "3.1", "toVersion": "4.1"}
+
+save
